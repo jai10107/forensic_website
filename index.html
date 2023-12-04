@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML CSS Website</title>
+    <link rel="stylesheet" href="./0_main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./0_news.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="./index.html" id="navbar__logo"><i class="fas fa-gem"></i>MDF</a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="./1_encode_decode.html" class="navbar__links">Encode</a>
+          </li>
+          <li class="navbar__item">
+            <a href="./3_stegan.html" class="navbar__links">Stegan</a>
+          </li>
+          <li class="navbar__item">
+            <a href="./2_aes.html" class="navbar__links">AES</a>
+          </li>
+          <li class="navbar__btn"><a href="/" class="button">Sign Up</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="main">
+      <div class="main__container">
+        <div class="main__content">
+          <h1>Mobile</h1>
+          <h1>Device</h1>
+          <h2>Forensics</h2>
+          <p>See what makes up different.</p>
+          <button class="main__btn"><a href="#look">Lookup</a></button>
+        </div>
+        <div class="main__img--container">
+          <img id="main__img" src="images/pic1.svg" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="services">
+      <h1 id="look">See what we can do</h1>
+      <div class="services__container">
+        <div class="services__card">
+          <h2 id="encode">Encode and Decode</h2>
+          <p>Base64 encoding and decoding is a method of transferring information into a usable file format. It maps binary values to characters in a string . Here you can encode and decode the text's</p>
+          <br><br>
+          <a href="./1_encode_decode.html"><button>Encode / Decode</button></a>
+
+        </div>
+        <div class="services__card">
+          <h2 id="stegan">Steganography</h2>
+          <p>Steganography is the practice of hiding information within a non-secret message or physical object. The hidden data can be extracted at its destination.</p>
+          <a href="./3_stegan.html"><button>Stegan</button></a>
+        </div>
+        <div class="services__card">
+          <h2>AES</h2>
+          <p>Advanced Encryption Standard (AES) is a cipher that protects data transfer online. It's a symmetric block cipher that uses the same key to encrypt and decrypt data. AES is considered one of the best encryption protocols because it combines speed and security</p>
+          <a href="2_aes.html"><button>AES</button></a>
+        </div>
+      </div><br><br><br><br><br><br><br><br>
+      <h1>Upcoming Features</h1>
+    </div><br><br><br><br><br>
+  <!-- News -->
+
+  <div id="craouselContainer" class="swiper-container">
+    <div class="swiper-wrapper" id="slideHolder">
+        <!-- Slides -->
+
+    </div>
+    <div class="swiper-pagination"></div>
+
+</div>
+
+<script>
+    var testiomnialData = [
+{
+    avatar: "https://mlthdq5mpfct.i.optimole.com/cb:6bDs~3f6ae/w:1002/h:523/q:mauto/f:avif/https://digitalforensicsdubai.com/wp-content/uploads/Cellebrite-UFED-Cloud-1.jpg",
+    name: "Cellebrite UFED",
+    review: "Cellebrite UFED is a commercial mobile forensics tool that can be used to extract data from mobile devices."
+},
+{
+    avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrqr_LVb8RhkaLU22-jnXHssQfHGyyUCeG0ESLyo_uJTKEzF-0xfQUB2xo0Ghd_ZJISq4&usqp=CAU",
+    name: "Tcp Dump",
+    review: "tcpdump is a command-line tool for capturing network traffic. It can be used to capture all network traffic, or to capture traffic from specific hosts or networks."
+},
+{
+    avatar: "data:image/png;base64,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",
+    name: "strings",
+    review: "strings is a command-line tool for extracting printable characters from binary files. It can be used to find hidden data in files, such as password hashes or configuration information."
+},
+{
+    avatar: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAZlBMVEX/pk3/////pEf/voT/oDv/okH/9Ov/w47/273/38X/1rT/o0T/pUr//vz/yJj/qFH/9vD/7Nz/7+L/nzf/zaH/rFv/tXH/4cj/59P/0qv/rV//xZH/sWf/vID/+fT/uHj/yp3/0KiiBhX1AAAEGUlEQVR4nO3baXuiMBSG4aigVuKGa6ttnf//J2ekKpyTgIC1Q3o998eU7ZXDkpAaAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgMDYfn3ZCrLJ1tmq9TTasoUrlOzsTsC3QX3nFeYj0XTse7d6FAtts0Oz22Lb5na4sr3KW5uI/UOvvvMKcSrbrG+v8YdY5pgtE++KbYPbTxO/1N3/wftz3ks4apjQzmXbLnI3Go3FIuvYk6SQUC5dYfQjCU08k41bZ7f2KBZIVyashGa1FI1D5yRGQ7HA9YoLJ6E1svVPLDcZr8Wf19c/h5PQJOruNBc3G3WhXms0qIQm2ovmvajTSBZx/lQIKaG1U9H+XthzIje4zks4pIQmGYj2j8KVmIjwaeH0BpXQROLp3ZvcIkby8b0pXKKPJ/yGJ/5+UqmwnjxVtyT9T9G8Lt5m6yXcle9+vG311iYSHqK4QlJc711EWV7umNGi2JqKW1C9hIOKQ2j15i0TzpL7a1yochxla8YT75ltkrDVtValdUKTiLfr6bke7ZsIuJavAsElVJfc+F9FrkS/I3/Wfwkuoe5BHG18Eg0bddmEl1D1Aocr+b6qajTIhP2tiHQQz0hdo0EmNJG8dQq6RsNMqB5/RU6NBpqwL3vzObdGA01YWqdujXYk4WEVlfKHVyMWF54arZ0wsV7flLDKi++o9WvMF1+N1k5o537PTzj2JjTxq7uor0Yf7T0tPaOWP5PQRKle0lujASd06tRfowEnNCs5LtXzf8oIOKEas8l7w78n4VQvWfJUDTWhGpPKzH/TvVSN11yO5oHn4ZMTfixKfUy8tdd3avRs1v6d5skJG7+1+Wr0zFen9RIOU6/hruxW3ixh476Fr0azX7x132JQ8iO3DfhgQvc+etvS7+gfltXomVunASYsrdEzt04DTCjHhHsbGdGp0/ASqhqdreTXbadOg0uoajSNdH9f12lwCd3va2qWSe8U9ncL9e0pm5ChxvlVnQaWUNXoZVKNmu21bPH9sDMJvTPXnOfHqfk34K4kVDU6uZ4s/Q7Q/Dv+s8dLo6TKbefqXOVzMfR8qeZzMZ6ccFopP15Vo5/5USVqXt+p6XyaJye845pQ1ehL8Yai5vU1nhPViYTq+/ZUHJMeXGw6r60TCSNZoyN5e9KD4A3nJnYhoarRvR5e0B8Vm80v7UBCVaM9ozuC6uN3wznCHUio7qMntzOvTnKzed7/P6E6/NQ3BKYHN77qNJCEuka9H9LUHNNLnQaSUPXrX/1DYPpjTVanpf9v8eSEg8Wwtn2cvIrFy4Zp7VyuuDif6mRSWHeRzyuW7YPvTmj65WPAvjHLRLaUbdWqNbNaFusWJ06XtAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8Ki/ZalNYcgf9XkAAAAASUVORK5CYII=",
+    name: "Exif",
+    review: "exiftool is a command-line tool for extracting and modifying EXIF metadata from images. EXIF metadata can contain information about the camera used to take the photo, the date and time the photo was taken, and other details about the photo."
+},
+{
+    avatar: "https://www.shutterstock.com/image-vector/biometric-security-control-vector-icon-600nw-1297645606.jpg",
+    name: "Suspect Mobile Forensics",
+    review: "Suspect Mobile Forensics is a mobile forensics tool that is designed for corporate and government investigators. It can be used to extract data from a wide variety of mobile devices, including Android, iOS, and Windows Phone. It can also be used to analyze deleted data, recover passwords, and more. "
+},
+{
+    avatar: "data:image/png;base64,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",
+    name: "Belkasoft",
+    review: "Belkasoft is a company that specializes in digital forensics technology. They are known for their comprehensive forensic tools that are used to acquire, examine, and analyze evidence from mobile, computer, and cloud sources."
+}, {
+    avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaFJ6O5b-syKgrjO3EyGEiqAwOfrlm1h2YG5Y4nWk7-4s2pt7-pfWDd4G361hn2So5j3E&usqp=CAU",
+    name: "Graykey",
+    review: "GrayKey is a mobile forensics tool that can extract data from mobile devices. It can extract full files and provide same-day extraction. GrayKey can access data on both iOS and Android devices."
+}]
+var slideHolder = document.querySelector("#slideHolder")
+for (let i of testiomnialData) slideHolder.innerHTML += `<div class="swiper-slide"> <div class="ImgHolder"><img src="${i.avatar}"></div><div class="ContentHolder"><h3>${i.name}</h3><p>${i.review}</p></div></div>`
+
+const swiper = new Swiper('#craouselContainer', {
+grabCursor: true,
+centeredSlides: true,
+slidesPerView: 2.3,
+loop: true,
+spaceBetween: 30,
+effect: "coverflow",
+coverflowEffect: {
+    rotate: 0,
+    depth: 800,
+    slideShadows: true,
+},
+pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+},
+autoplay: { delay: 5000 }
+});
+window.onresize = queryResizer
+queryResizer()
+function queryResizer() {
+if (window.innerWidth < 724) swiper.params.slidesPerView = 2
+if (window.innerWidth > 501) swiper.params.slidesPerView = 2
+if (window.innerWidth > 724) swiper.params.slidesPerView = 2.3
+if (window.innerWidth < 501) swiper.params.slidesPerView = 1
+swiper.update()
+}
+</script>
+<br><br><br><br>
+    <!-- Footer Section -->
+    <div class="footer__container">
+      <div class="footer__links">
+        <div class="footer__link--wrapper">
+          <div class="footer__link--items">
+            <h2>About Us</h2>
+            <a href="/sign__up">How it works</a> <a href="/">Testimonials</a>
+            <a href="/">Careers</a> <a href="/">Investments</a>
+            <a href="/">Terms of Service</a>
+          </div>
+          <div class="footer__link--items">
+            <h2>Contact Us</h2>
+            <a href="/">Contact</a> <a href="/">Support</a>
+            <a href="/">Destinations</a> <a href="/">Sponsorships</a>
+          </div>
+        </div>
+        <div class="footer__link--wrapper">
+
+          <div class="footer__link--items">
+            <h2>Social Media</h2>
+            <a href="/">Instagram</a> <a href="/">Facebook</a>
+            <a href="/">Youtube</a> <a href="/">Twitter</a>
+          </div>
+        </div>
+      </div>
+      <section class="social__media">
+        <div class="social__media--wrap">
+          <div class="footer__logo">
+            <a href="/" id="footer__logo"><i class="fas fa-gem"></i>MDF</a>
+          </div>
+          <p class="website__rights">© Jayveer and co. All rights reserved</p>
+          <div class="social__icons">
+            <a
+              class="social__icon--link"
+              href="/"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a
+              class="social__icon--link"
+              href="/"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              class="social__icon--link"
+              href="//www.youtube.com/channel/UCsKsymTY_4BYR-wytLjex7A?view_as=subscriber"
+              target="_blank"
+              aria-label="Youtube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a
+              class="social__icon--link"
+              href="/"
+              target="_blank"
+              aria-label="Twitter"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              class="social__icon--link"
+              href="/"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./0_main.js"></script>
+  </body>
+</html>

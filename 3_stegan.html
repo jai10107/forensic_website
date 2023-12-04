@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./3_stegan.css">
+</head>
+<body>
+	<nav class="navbar">
+		<div class="navbar__container">
+		  <a href="./index.html" id="navbar__logo"><i class="fas fa-gem"></i>MDF</a>
+		  <div class="navbar__toggle" id="mobile-menu">
+			<span class="bar"></span> <span class="bar"></span>
+			<span class="bar"></span>
+		  </div>
+		  <ul class="navbar__menu">
+			<li class="navbar__item">
+			  <a href="./1_encode_decode.html" class="navbar__links">Encode</a>
+			</li>
+			<li class="navbar__item">
+			  <a href="./3_stegan.html" class="navbar__links">Stegan</a>
+			</li>
+			<li class="navbar__item">
+			  <a href="./2_aes.html" class="navbar__links">AES</a>
+			</li>
+			<li class="navbar__btn"><a href="/" class="button">Sign Up</a></li>
+		  </ul>
+		</div>
+	  </nav>
+	<div class="wrap">
+
+		<h2>Encode an image with a message</h2>
+		<label>Enter a message to hide within the image:</label><br/>
+		<input type="password" id="message" placeholder="Enter your secret message"></br>
+		<label>Upload an image image:</label><br/>
+		<input type="file" id="imageLoader" name="imageLoader"/>
+		<canvas id="imageCanvas"></canvas>
+		<canvas id="textCanvas"></canvas>
+		<hr>
+		<h2>Decode an image</h2>
+		<label>Upload an image:</label><br/>
+		<input type="file" id="imageLoader2" name="imageLoader2"/>
+		<canvas id="imageCanvas2"></canvas>
+	</div>
+	<script src="3_stegan.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+#textCanvas {
+  display:none;
+}
+
+.wrap {
+  padding:30px;
+}
+
+p {
+  background-color:#ddd;
+  padding:20px;
+  border:1px solid #ccc;
+}

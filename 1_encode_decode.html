@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Encoder/Decoder</title>
+
+    <link rel="stylesheet" href="./1_encode_decode.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="./index.html" id="navbar__logo"><i class="fas fa-gem"></i>MDF</a>
+      <div class="navbar__toggle" id="mobile-menu">
+        <span class="bar"></span> <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__item">
+          <a href="./1_encode_decode.html" class="navbar__links">Encode</a>
+        </li>
+        <li class="navbar__item">
+          <a href="./3_stegan.html" class="navbar__links">Stegan</a>
+        </li>
+        <li class="navbar__item">
+          <a href="./2_aes.html" class="navbar__links">AES</a>
+        </li>
+        <li class="navbar__btn"><a href="/" class="button">Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <center><h1 style="color: white;">Text Encoder/Decoder</h1></center>
+    <div class="searchbox-wrap">
+
+        <label for="inputText">Enter Text</label>
+        <textarea id="inputText"></textarea>
+
+
+    </div>
+    <div class="but">
+
+        <button onclick="encodeText()"><span>Encode</span> </button>
+        <button onclick="decodeText() "><span>Decode</span></button>
+    </div>
+    <div class="searchbox-wrap2">
+        <h2>Result</h2>
+        <textarea id="outputText" readonly></textarea>
+
+    </div>
+
+
+
+    <script>
+        function encodeText() {
+            var inputText = document.getElementById('inputText').value;
+            var encodedText = btoa(inputText);
+            document.getElementById('outputText').value = encodedText;
+        }
+
+        function decodeText() {
+            var inputText = document.getElementById('inputText').value;
+            try {
+                var decodedText = atob(inputText);
+                document.getElementById('outputText').value = decodedText;
+            } catch (error) {
+                alert("Invalid Base64 encoded text");
+            }
+        }
+
+    </script>
+
+</body>
+</html>

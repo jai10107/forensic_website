@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./2_aes.css">
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+    crossorigin="anonymous"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="./index.html" id="navbar__logo"><i class="fas fa-gem"></i>MDF</a>
+      <div class="navbar__toggle" id="mobile-menu">
+        <span class="bar"></span> <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__item">
+          <a href="./1_encode_decode.html" class="navbar__links">Encode</a>
+        </li>
+        <li class="navbar__item">
+          <a href="./3_stegan.html" class="navbar__links">Stegan</a>
+        </li>
+        <li class="navbar__item">
+          <a href="./2_aes.html" class="navbar__links">AES</a>
+        </li>
+        <li class="navbar__btn"><a href="/" class="button">Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <div class="container">
+        <h1 > AES  Encrypt & Decrypt</h1>
+        <div class="forms">
+          <div class="formContainer encrypt">
+           <form method="post">
+
+            <label type="text" name="string">Text</label>
+           <input type=text name="string" required > <br><br>
+              <label type="password">Password</label>
+              <input type="password" name="password" required>
+              <input type="submit">
+           </form>
+          </div>
+<br><br><br><br><br>
+          <div class="formContainer decrypt">
+            <form method="post">
+              <label >Encryption</label>
+              <input type="text" name="string" required><br><br>
+              <label >Password </label>
+              <input type="password" name="password" required>
+              <input type="submit">
+            </form>
+          </div>
+        </div>
+<br><br>
+        <div class="result">
+          Output:
+          <p class="resultContent"></p>
+        </div>
+      </div>
+
+
+
+      <script>
+        const aesGcmEncrypt = async function (plaintext, password) {
+            try {
+              const pwUtf8 = new TextEncoder().encode(password);
+              const pwHash = await crypto.subtle.digest('SHA-256', pwUtf8);
+              const iv = crypto.getRandomValues(new Uint8Array(12));
+              const alg = { name: 'AES-GCM', iv: iv };
+              const key = await crypto.subtle.importKey('raw', pwHash, alg, false, ['encrypt']);
+              const ptUint8 = new TextEncoder().encode(plaintext);
+              const ctBuffer = await crypto.subtle.encrypt(alg, key, ptUint8);
+              const ctArray = Array.from(new Uint8Array(ctBuffer));
+              const ctStr = ctArray.map(byte => String.fromCharCode(byte)).join('');
+              const ctBase64 = btoa(ctStr);
+              const ivHex = Array.from(iv).map(b => ('00' + b.toString(16)).slice(-2)).join('');
+              return ivHex + ctBase64;
+            } catch (err) { }
+          } //func aesGcmEncrypt
+
+          const aesGcmDecrypt = async function (ciphertext, password) {
+            try {
+              const pwUtf8 = new TextEncoder().encode(password);
+              const pwHash = await crypto.subtle.digest('SHA-256', pwUtf8);
+              const iv = ciphertext.slice(0, 24).match(/.{2}/g).map(byte => parseInt(byte, 16));
+              const alg = { name: 'AES-GCM', iv: new Uint8Array(iv) };
+              const key = await crypto.subtle.importKey('raw', pwHash, alg, false, ['decrypt']);
+              const ctStr = atob(ciphertext.slice(24));
+              const ctUint8 = new Uint8Array(ctStr.match(/[\s\S]/g).map(ch => ch.charCodeAt(0)));
+              const plainBuffer = await crypto.subtle.decrypt(alg, key, ctUint8);
+              const plaintext = new TextDecoder().decode(plainBuffer);
+              return plaintext;
+            } catch (err) { }
+          } //func aesGcmDecrypt
+
+
+          //Decrypt and Encrypt
+            const $result = document.querySelector('.result .resultContent');
+            const errorMsg = "WHoops, something went wrong";
+
+            document.querySelector('.encrypt form').addEventListener('submit', async (event) => {
+             event.preventDefault();
+              try {
+                const text = event.target[0].value;
+                const pass = event.target[1].value;
+
+                console.log(text,pass);
+
+                const result = await aesGcmEncrypt(text, pass);
+
+                $result.innerHTML = result ? result : errorMsg;
+
+                console.log(result);
+
+              } catch(e) {
+                $result.innerHTML = errorMsg
+              }
+            });
+
+            document.querySelector('.decrypt form').addEventListener('submit', async (event) => {
+             event.preventDefault();
+              try {
+                const text = event.target[0].value;
+                const pass = event.target[1].value;
+
+
+                const result = await aesGcmDecrypt(text, pass);
+                $result.innerHTML = result ? result : errorMsg;
+
+               console.log(result);
+
+              } catch(e) {
+                $result.innerHTML = errorMsg;k
+              }
+            });
+
+
+          // Random stuff
+            const passwordFields = document.querySelectorAll('input[type="password"]')
+            for(let passwordField of passwordFields) {
+              passwordField.addEventListener('mouseover', function() {
+                this.type = 'text';
+              });
+              passwordField.addEventListener('mouseout', function() {
+                this.type = 'password';
+              });
+            }
+
+
+      </script>
+</body>
+</html>
