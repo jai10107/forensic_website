@@ -7,7 +7,7 @@ this is the main interface of the website
 step -1 : you have to enter any message that you want to encode
 
 ![image](https://github.com/jai10107/forensic_website/assets/89000059/d9f36c31-84e3-4e1c-98b3-265ab4092584)
-
+* here the hash is generated 
 step - 2: enter the hash to decode 
 ![image](https://github.com/jai10107/forensic_website/assets/89000059/76a4eee4-0c65-4598-a165-1a30497352ba)
 <br><br>
